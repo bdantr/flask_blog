@@ -1,18 +1,18 @@
-{% extands "base.html" %}
+{% extends "base.html" %}
 
 {% block content  %}
    <form action="" method="post" novalidate>
-   {{ form.hidden_teg() }}
+   {{ form.hidden_tag() }}
        <div class="mb-3">
              {{ form.username.label(class="form-label") }}
              {{ form.username(class="form-control") }}
        </div>
        <div class="mb-3">
              {{ form.password.label(class="form-label") }}
-             {{ form.passsword(class="form-control") }}
+             {{ form.password(class="form-control") }}
        </div>
        <div class="mb-3">
-           {{ form.rememberMe(class="from-check-input") }} {{ form.remember_me.label(class="form-check-label") }}
+           {{ form.remember_me(class="from-check-input") }} {{ form.remember_me.label(class="form-check-label") }}
        </div>
        <div class="mb-3">
            {{ form.submit(class="btn btn-primary") }}
