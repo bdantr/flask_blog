@@ -3,6 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app import app, login, db
 from forms import LoginForm,RegistrationForm
 from models import User
+from datetime import datetime
 
 @login.user_loader
 def load_user(id):
@@ -65,3 +66,9 @@ def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     posts = {}
     return render_template('user.html',user=user,posts=posts)
+
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow
+        db.session.commit()
