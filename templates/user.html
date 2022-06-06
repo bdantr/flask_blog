@@ -4,4 +4,8 @@
     <img src="{{ user.avatar(128) }}" alt="{{ user.uername }}-avatar">
     <h1>User: {{ user.username }}</h1>
     <hr>
+    {% for post in posts %}
+    <p>{{ post.author.username }}: <b>{{ post.body }}</b></p>
+    {% endfor %}
+    
 {% endblock %}
