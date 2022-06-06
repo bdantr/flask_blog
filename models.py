@@ -10,7 +10,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(120), unique=True, index=True)
     password = db.Column(db.String(256))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-    about = db.Column(db.string(140))
+    about = db.Column(db.String(140))
     lastseen= db.Column(db.DateTime ,default=datetime.utcnow)
 
 
